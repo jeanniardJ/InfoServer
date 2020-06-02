@@ -33,23 +33,33 @@ class InfoServer
      */
     public function getSystem()
     {
-        $this->values['system'] = [
-            ['hostname'] => trim($this->ssh->exec("hostname")),
-            ['os'] => trim($this->ssh->exec("uname -o")),
-            ['date'] => trim($this->ssh->exec("date")),
-            ['kernel'] => trim($this->ssh->exec("uname -r")),
-            ['arch'] => trim($this->ssh->exec("uname -m"))
+        $this->syteme = [
+            'hostname' => trim($this->ssh->exec("hostname")),
+            'os' => trim($this->ssh->exec("uname -o")),
+            'date' => trim($this->ssh->exec("date")),
+            'kernel' => trim($this->ssh->exec("uname -r")),
+            'arch' => trim($this->ssh->exec("uname -m"))
         ];
-        return $this->values;
+        return $this->values += $this->syteme;
     }
 
     public function getCpu(){
-        $usageCpu = intval(trim($this->ssh->exec("ps -A -u ".$rowsBoxes['login']." -o pcpu | tail -n +2 | awk '{ usage += $1 } END { print usage }'")));
-        $this->values['cpu'] = [
-            ['model'] => trim($this->ssh->exec("cat /proc/cpuinfo | grep 'model name' | awk -F \":\" '{print $2}' | head -n 1")),
-            ['cores'] => intval(trim($this->ssh->exec("nproc"))),
-            ['usage'] => round(($usageCpu/$this->values['cpu']['cores']),2)
+        $this->user = trim($this->ssh->exec("id -un"));
+        $this->usageCpu = intval(trim($this->ssh->exec("ps -A -u ". $this->user ." -o pcpu | tail -n +2 | awk '{ usage += $1 } END { print usage }'")));
+        $this->nbrCores = intval(trim($this->ssh->exec("nproc")));
+        $this->cpu = [
+            'model' => trim($this->ssh->exec("cat /proc/cpuinfo | grep 'model name' | awk -F ':' '{print $2}' | head -n 1")),
+            'cores' => $this->nbrCores,
+            'usage' => round(($this->usageCpu/$this->nbrCores),2)
         ];
+        return $this->values += $this->cpu;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRam(): array
+    {
         return $this->values;
     }
 }
