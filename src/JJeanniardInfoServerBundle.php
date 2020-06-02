@@ -19,6 +19,7 @@ use phpseclib\Net\SSH2;
 class JjeanniardInfoServer
 {
     private $ssh;
+    private $values = [];
 
     public function __construct(SSH2 $_ssh)
     {
@@ -32,14 +33,23 @@ class JjeanniardInfoServer
      */
     public function getSystem()
     {
-        $values = [];
-        $values[] = [
-            ['hostname'] => trim($this->ssh("hostname")),
-            ['os'] => trim($this->ssh("uname -o")),
-            ['date'] => trim($this->ssh("date")),
-            ['kernel'] => trim($this->ssh("uname -r")),
-            ['arch'] => trim($this->ssh("uname -m"))
+        $this->values['system'] = [
+            ['hostname'] => trim($this->ssh->exec("hostname")),
+            ['os'] => trim($this->ssh->exec("uname -o")),
+            ['date'] => trim($this->ssh->exec("date")),
+            ['kernel'] => trim($this->ssh->exec("uname -r")),
+            ['arch'] => trim($this->ssh->exec("uname -m"))
         ];
-        return $values;
+        return $this->values;
+    }
+
+    public function getCpu(){
+        $usageCpu = intval(trim($this->ssh->exec("ps -A -u ".$rowsBoxes['login']." -o pcpu | tail -n +2 | awk '{ usage += $1 } END { print usage }'")));
+        $this->values['cpu'] = [
+            ['model'] => trim($this->ssh->exec("cat /proc/cpuinfo | grep 'model name' | awk -F \":\" '{print $2}' | head -n 1")),
+            ['cores'] => intval(trim($this->ssh->exec("nproc"))),
+            ['usage'] => round(($usageCpu/$this->values['cpu']['cores']),2)
+        ];
+        return $this->values;
     }
 }
