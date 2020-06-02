@@ -1,5 +1,5 @@
 # Info Server for linux
-Va relever les information de base d'un serveur linux
+Va relever les informations de base d'un serveur linux
 
 * Syteme
     * Hostname
