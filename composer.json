@@ -1,6 +1,17 @@
 {
-    "type": "project",
-    "license": "proprietary",
+    "name": "JJeanniard/InfoServer",
+    "type": "library",
+    "description": "Get info linux server",
+    "keywords": ["linux", "info"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeanniard Jonathan",
+            "email": "jonathanjeanniard@outlook.fr",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
