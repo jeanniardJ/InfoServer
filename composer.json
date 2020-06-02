@@ -19,12 +19,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Jjeanniard\\": "src/InfoServer/"
+            "Jjeanniard\\": "src/InfoServer"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jjeanniard\\Tests\\": "tests/"
+            "Jjeanniard\\": "tests/InfoServe"
         }
     }
 }

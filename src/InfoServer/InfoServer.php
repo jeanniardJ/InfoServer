@@ -1,6 +1,6 @@
 <?php
 
-namespace Jjeanniard\InfoServer;
+namespace Jjeanniard;
 
 use phpseclib\Net\SSH2;
 /**
