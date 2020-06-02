@@ -159,6 +159,9 @@ fabric.properties
 
 #### party tow for module
 /config/
-/public/
+public/
 
 .idea/
+bin/
+config/
+.env
