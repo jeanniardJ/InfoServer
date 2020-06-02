@@ -1,10 +1,8 @@
 <?php
 
-namespace App\JJeanniard\InfoServerBundle;
+namespace JJeanniard\InfoServer;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-class JJeanniardInfoServerBundle extends Bundle
+class JJeanniardInfoServer
 {
     private $ssh;
 
