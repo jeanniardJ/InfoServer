@@ -16,7 +16,7 @@ use phpseclib\Net\SSH2;
  * @version 0.0.0-alpha
  * @license MIT
  */
-class JjeanniardInfoServer
+class InfoServer
 {
     private $ssh;
     private $values = [];
