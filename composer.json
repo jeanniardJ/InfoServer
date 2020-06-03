@@ -2,7 +2,7 @@
     "name": "jjeanniard/infoserver",
     "type": "library",
     "description": "Get info linux server",
-    "keywords": ["linux", "info"],
+    "keywords": ["linux", "info", "ssh", "monitoring"],
     "license": "MIT",
     "authors": [
         {
