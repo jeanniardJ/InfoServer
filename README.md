@@ -1,7 +1,7 @@
 # News Server Linux
 
 Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04) 
-et les retourne en tableau, pour pouvoir ensuite les utilisées de différentes manières.
+et les retournes en tableaux, pour pouvoir ensuite les utilisées de différentes manières.
 ```
 * getSystem()
 * getCpu()
@@ -23,6 +23,12 @@ Require: ```phpseclib/phpseclib```
 
 Exemple :
 ```php
+$ssh = new SSH2('localhost', 'port');
+
+if (!$ssh->login('username', 'password')) {
+    echo('Login Failed');
+}
+
 $dataServ = new InfoServer($ssh);
 $dataServ->getCpu();
 ```
