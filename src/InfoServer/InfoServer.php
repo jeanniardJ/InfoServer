@@ -13,7 +13,7 @@ use phpseclib\Net\SSH2;
  * Et tout ce si est retourné au maximum dans un tableau pour une utilisation de votre choix.
  * @package JJeanniard\InfoServer
  * @author JJeanniard
- * @version 0.0.0-alpha
+ * @version 1.0.0-alpha
  * @license MIT
  */
 class InfoServer
@@ -98,7 +98,7 @@ class InfoServer
      *  Usage
      * @return array
      */
-    public function swap(){
+    public function getSwap(){
         $swapUsage = 0;
         $swapUsed = intval(trim($this->ssh->exec("free -b | grep 'Swap' | awk -F ':' '{print $2}' | awk '{print $2}'")));
         $swapFree = intval(trim($this->ssh->exec("free -b | grep 'Swap' | awk -F ':' '{print $2}' | awk '{print $3}'")));
@@ -127,7 +127,7 @@ class InfoServer
 
     }
 
-    public function getDish(){
+    public function getDisk(){
 
     }
 }
