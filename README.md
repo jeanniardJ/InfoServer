@@ -2,6 +2,7 @@
 
 Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04) 
 et les retourne en tableau, pour pouvoir ensuite les utilisées de différentes manières.
+```
 * getSystem()
 * getCpu()
 * getRam()
@@ -9,7 +10,7 @@ et les retourne en tableau, pour pouvoir ensuite les utilisées de différentes 
 * getLoadAverage()
 * getReseau()
 * getDisk()
-
+```
 ### Installation
 
 ```composer require jjeanniard/infoserver```
