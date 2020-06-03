@@ -1,8 +1,8 @@
 {
     "name": "jjeanniard/infoserver",
     "type": "library",
-    "description": "Get info linux server",
-    "keywords": ["linux", "info", "ssh", "monitoring"],
+    "description": "Get info linux ubuntu server.",
+    "keywords": ["linux", "info", "ssh", "ubuntu", "hostname", "cpu", "ram", "reseau"],
     "license": "MIT",
     "authors": [
         {
