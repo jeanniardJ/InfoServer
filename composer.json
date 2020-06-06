@@ -4,6 +4,7 @@
     "description": "Get info linux ubuntu server.",
     "keywords": ["linux", "info", "ssh", "ubuntu", "hostname", "cpu", "ram", "reseau"],
     "license": "MIT",
+    "version": "1.0.0-alpha",
     "authors": [
         {
             "name": "Jeanniard Jonathan",
@@ -12,7 +13,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "=>5.3.3",
         "phpseclib/phpseclib": "^2.0"
     },
     "require-dev": {

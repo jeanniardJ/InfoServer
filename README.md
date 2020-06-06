@@ -33,8 +33,6 @@ $dataServ = new InfoServer($ssh);
 $dataServ->getCpu();
 ```
 
-## Credits
-
 #### Licence
 
 [MIT](https://github.com/JJeanniard/InfoServer/blob/master/LICENSE)

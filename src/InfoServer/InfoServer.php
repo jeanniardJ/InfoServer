@@ -11,7 +11,7 @@ use phpseclib\Net\SSH2;
  * les infos de la ram "used, free, toto, usage", le swap, le load average,
  * les infos cpu "used, nombres de cores, le model" ....
  * Et tout ce si est retourné au maximum dans un tableau pour une utilisation de votre choix.
- * @package JJeanniard\InfoServer
+ * @package JJeanniard
  * @author JJeanniard
  * @version 1.0.0-alpha
  * @license MIT
@@ -53,7 +53,8 @@ class InfoServer
      *  Usage
      * @return array
      */
-    public function getCpu(){
+    public function getCpu(): array
+    {
         $user = trim($this->ssh->exec("id -un"));
         $usageCpu = intval(trim($this->ssh->exec("ps -A -u ". $user ." -o pcpu | tail -n +2 | awk '{ usage += $1 } END { print usage }'")));
         $nbrCores = intval(trim($this->ssh->exec("nproc")));
@@ -98,7 +99,8 @@ class InfoServer
      *  Usage
      * @return array
      */
-    public function getSwap(){
+    public function getSwap(): array
+    {
         $swapUsage = 0;
         $swapUsed = intval(trim($this->ssh->exec("free -b | grep 'Swap' | awk -F ':' '{print $2}' | awk '{print $2}'")));
         $swapFree = intval(trim($this->ssh->exec("free -b | grep 'Swap' | awk -F ':' '{print $2}' | awk '{print $3}'")));
@@ -117,17 +119,43 @@ class InfoServer
      * return Load average
      * @return array
      */
-    public function getLoadAverage()
+    public function getLoadAverage(): array
     {
         $loadavg = trim($this->ssh->exec("top -b -n 1 | grep 'load average' | awk -F ',' '{print $5}'"));
         return $this->loadaverage = ['load average' => $loadavg];
     }
 
-    public function getReseau(){
-
+    /**
+     * return rx & tx
+     * @return array
+     */
+    public function getReseau(): array
+    {
+        $interface[] = trim($this->ssh->exec("ip link | grep 'state UP' | awk -F ':' '{ print $2 }' | awk '{ print $1 }'"));
+        for($i = 0; $i < count($interface); $i++){
+            $this->reseau = [ $interface[$i] => [
+                'upload' => intval(trim($this->ssh->exec('cat /sys/class/net/'.$interface[$i].'/statistics/rx_bytes'))),
+                'download' => intval(trim($this->ssh->exec('cat /sys/class/net/'.$interface[$i].'/statistics/tx_bytes')))
+            ]];
+        }
+        return $this->reseau;
     }
 
-    public function getDisk(){
+    /**
+     * return
+     * @return array
+     */
+    public function getDisk(): array
+    {
+        return ;
+    }
+
+    /**
+     * return uptime
+     * @return array
+     */
+    function getUptime()
+    {
 
     }
 }
