@@ -134,8 +134,8 @@ class InfoServer
         $interface[] = trim($this->ssh->exec("ip link | grep 'state UP' | awk -F ':' '{ print $2 }' | awk '{ print $1 }'"));
         for($i = 0; $i < count($interface); $i++){
             $this->reseau = [ $interface[$i] => [
-                'upload' => intval(trim($this->ssh->exec('cat /sys/class/net/'.$interface[$i].'/statistics/rx_bytes'))),
-                'download' => intval(trim($this->ssh->exec('cat /sys/class/net/'.$interface[$i].'/statistics/tx_bytes')))
+                'upload' => intval(trim($this->ssh->exec('cat /sys/class/net/'.$interface[$i].'/statistics/tx_bytes'))),
+                'download' => intval(trim($this->ssh->exec('cat /sys/class/net/'.$interface[$i].'/statistics/rx_bytes')))
             ]];
         }
         return $this->reseau;
