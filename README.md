@@ -1,8 +1,11 @@
 # News Server Linux
 
-Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04) 
+## Description
+
+Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04)
 et les retournes en tableaux, pour pouvoir ensuite les utilisées de différentes manières.
-```
+
+```text
 * getSystem()
 * getCpu()
 * getRam()
@@ -10,18 +13,21 @@ et les retournes en tableaux, pour pouvoir ensuite les utilisées de différente
 * getLoadAverage()
 * getReseau()
 * getDisk()
+* getUptime()
 ```
+
 ### Installation
 
 ```composer require jjeanniard/infoserver```
 
-##### Warning
+#### Warning
 
 Require: ```phpseclib/phpseclib```
 
 ## Usage
 
 Exemple :
+
 ```php
 $ssh = new SSH2('localhost', 'port');
 
@@ -33,6 +39,6 @@ $dataServ = new InfoServer($ssh);
 $dataServ->getCpu();
 ```
 
-#### Licence
+### Licence
 
 [MIT](https://github.com/JJeanniard/InfoServer/blob/master/LICENSE)
