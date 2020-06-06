@@ -109,8 +109,8 @@ class InfoServer
         $this->swap = [
           'used' => $swapUsed,
           'free' => $swapFree,
-          'Total' => $swapTotal,
-          'Usage' => $swapTotal!=0?round((($swapUsed / $swapTotal) * 100), 2) : $swapUsage
+          'total' => $swapTotal,
+          'usage' => $swapTotal!=0?round((($swapUsed / $swapTotal) * 100), 2) : $swapUsage
         ];
         return $this->swap;
     }
@@ -142,20 +142,30 @@ class InfoServer
     }
 
     /**
-     * return
+     * return array disk
+     *  Used
+     *  Free
+     *  Total
+     *  Usage
      * @return array
      */
     public function getDisk(): array
     {
-        return ;
+        $this->disk = [
+            'used' => (intval(trim($this->ssh->exec("df -P / | tail -n +2 | head -n 1 | awk '{print $3}'"))) * 1024),
+            'free' => (intval(trim($this->ssh->exec("df -P / | tail -n +2 | head -n 1 | awk '{print $4}'"))) * 1024),
+            'total' => (intval(trim($this->ssh->exec("df -P / | tail -n +2 | head -n 1 | awk '{print $2}'"))) * 1024),
+            'usage' => intval(substr(trim($this->ssh->exec("df -P / | tail -n +2 | head -n 1 | awk '{print $5}'")), 0, -1))
+        ];
+        return $this->disk;
     }
 
     /**
-     * return uptime
+     * return uptime seconde
      * @return array
      */
     function getUptime()
     {
-
+        return $this->uptime = intval(trim($this->ssh->exec("cat /proc/uptime | awk '{print $1}'")));
     }
 }
