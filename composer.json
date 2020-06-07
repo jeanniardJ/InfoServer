@@ -4,7 +4,7 @@
     "description": "Get info linux ubuntu server.",
     "keywords": ["linux", "info", "ssh", "ubuntu", "hostname", "cpu", "ram", "reseau"],
     "license": "MIT",
-    "version": "v1.0.0",
+    "version": "v1.0.1",
     "authors": [
         {
             "name": "Jeanniard Jonathan",

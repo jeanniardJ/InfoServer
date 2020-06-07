@@ -13,7 +13,7 @@ use phpseclib\Net\SSH2;
  * Et tout ce si est retourné au maximum dans un tableau pour une utilisation de votre choix.
  * @package JJeanniard
  * @author JJeanniard
- * @version 1.0.0-alpha
+ * @version v1.0.1
  * @license MIT
  */
 class InfoServer
@@ -77,15 +77,15 @@ class InfoServer
      */
     public function getRam(): array
     {
-        $ramUsed = intval(trim($this->ssh->exec("free -b | grep 'buffers/cache' | awk -F ':' '{print $2}' | awk '{print $1}'")));
-        $ramFree = intval(trim($this->ssh->exec("free -b | grep 'buffers/cache' | awk -F ':' '{print $2}' | awk '{print $2}'")));
+        $ramUsed = intval(trim($this->ssh->exec("free -b | grep 'Men' | awk -F ':' '{print $2}' | awk '{print $2}'")));
+        $ramFree = intval(trim($this->ssh->exec("free -b | grep 'Men' | awk -F ':' '{print $2}' | awk '{print $3}'")));
         $ramTotal = $ramUsed + $ramFree;
 
         $this->ram = [
             'used' => $ramUsed,
             'free' => $ramFree,
             'total' => $ramTotal,
-            'usage' => $ramUsage = round((($ramUsed / $ramTotal) * 100), 2),
+            'usage' => round((($ramUsed / $ramTotal) * 100), 2),
         ];
 
         return $this->ram;
