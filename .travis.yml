@@ -1,7 +1,6 @@
 language: php
 php:
-   - 5.3
    - 7.4
+   - hhvm 
 install:
    - composer require phpseclib/phpseclib
-dist: precise
