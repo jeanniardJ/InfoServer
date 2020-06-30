@@ -1,5 +1,9 @@
 # News Server Linux
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/jjeanniard/infoserver.svg)](https://packagist.org/packages/jjeanniard/infoserver)
+[![Total Downloads](https://img.shields.io/packagist/dt/illuminatech/db-role.svg)](https://packagist.org/packages/jjeanniard/infoserver)
+[![Build Status](https://travis-ci.org/jjeanniard/infoserver.svg?branch=master)](https://travis-ci.org/jjeanniard/infoserver)
+
 ## Description
 
 Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04)
