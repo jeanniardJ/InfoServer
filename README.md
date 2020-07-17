@@ -5,7 +5,9 @@
 
 ## Description
 
-Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04)
+Récupère les informations de base d'un serveur linux:
+* Ubuntu 16.04, 20.04
+* Debian 10
 et les retournes en tableaux, pour pouvoir ensuite les utilisées de différentes manières.
 
 ```text
