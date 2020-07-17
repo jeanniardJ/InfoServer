@@ -32,6 +32,11 @@ Require: ```phpseclib/phpseclib```
 Exemple :
 
 ```php
+require __DIR__ . '/vendor/autoload.php';
+
+use phpseclib\Net\SSH2;
+use jjeanniard\InfoServer;
+
 $ssh = new SSH2('localhost', 'port');
 
 if (!$ssh->login('username', 'password')) {
