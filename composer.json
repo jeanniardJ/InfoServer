@@ -2,9 +2,9 @@
     "name": "jjeanniard/infoserver",
     "type": "library",
     "description": "Get info linux ubuntu server.",
-    "keywords": ["linux", "info", "ssh", "ubuntu", "hostname", "cpu", "ram", "reseau"],
+    "keywords": ["linux", "info", "ssh", "ubuntu", "debian","hostname", "cpu", "ram", "reseau"],
     "license": "MIT",
-    "version": "v1.0.2",
+    "version": "v1.0.2, v1.0.3",
     "authors": [
         {
             "name": "Jeanniard Jonathan",
