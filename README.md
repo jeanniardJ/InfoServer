@@ -49,6 +49,8 @@ $dataServ = new InfoServer($ssh);
 $dataServ->getCpu();
 ```
 
+![alt text](https://repository-images.githubusercontent.com/268706785/cac64700-2970-11eb-8940-78b66ccb204d "Retour des informations du serveur apres les avoir demandé.")
+
 ### Licence
 
 [MIT](https://github.com/JJeanniard/InfoServer/blob/master/LICENSE)
