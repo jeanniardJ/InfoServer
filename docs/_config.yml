@@ -1,0 +1,38 @@
+lang: fr_FR
+url: "https://jonathanjeanniard.me" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "Jjeanniard" # the name of your site, e.g. ACME Corp.
+tagline: "InfoServer" #bref desc
+description: "Ceci est mon expérience dans le développement, qui est représenté par une liste de projet et de technologie utilisé, sur lesquels j'ai participé ou que je réalise dans tout type de langages." #desc
+initiale: "Jjeanniard"
+
+google_analytics: "UA-8529534-11"
+
+author: "Jonathan Jeanniard"
+
+twitter:
+  title: My Twitter
+  username: jjeanniard
+  card: summary
+
+linkedin:
+  title: Mon profils Linkedin
+  username: Jonathan Jeanniard;
+
+social:
+  name: Jonathan Jeanniard
+  links:
+    - https://twitter.com/JJeanniard
+    - https://www.linkedin.com/in/jonathan-jeanniard/
+    - https://github.com/JJeanniard
+
+google_site_verification: "DSASZ6zc7H0_tdnnA8l485-hj7aG8-1lS1s0WbAtUvI"
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-github-metadata
+  - jekyll-autoprefixer
