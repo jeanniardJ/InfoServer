@@ -1,8 +1,13 @@
 # News Server Linux
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/jjeanniard/infoserver.svg)](https://packagist.org/packages/jjeanniard/infoserver)
+[![Total Downloads](https://img.shields.io/packagist/dt/illuminatech/db-role.svg)](https://packagist.org/packages/jjeanniard/infoserver)
+
 ## Description
 
-Récupère les informations de base d'un serveur linux (Ubuntu 16.04 & 20.04)
+Récupère les informations de base d'un serveur linux:
+* Ubuntu 16.04, 20.04
+* Debian 10
 et les retournes en tableaux, pour pouvoir ensuite les utilisées de différentes manières.
 
 ```text
@@ -29,6 +34,11 @@ Require: ```phpseclib/phpseclib```
 Exemple :
 
 ```php
+require __DIR__ . '/vendor/autoload.php';
+
+use phpseclib\Net\SSH2;
+use jjeanniard\InfoServer;
+
 $ssh = new SSH2('localhost', 'port');
 
 if (!$ssh->login('username', 'password')) {
@@ -38,6 +48,8 @@ if (!$ssh->login('username', 'password')) {
 $dataServ = new InfoServer($ssh);
 $dataServ->getCpu();
 ```
+
+![alt text](https://repository-images.githubusercontent.com/268706785/b787d580-2c15-11eb-8c08-dc04a34adef6 "Retour des informations du serveur apres les avoir demandé.")
 
 ### Licence
 
