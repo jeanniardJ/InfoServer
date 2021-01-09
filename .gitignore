@@ -165,3 +165,5 @@ public/
 bin/
 config/
 .env
+
+test/

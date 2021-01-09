@@ -1,0 +1,32 @@
+<header class="fixed-top">
+    <div class="bg-dark collapse" id="navbarNav">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">About</h4>
+                    <p class="text-muted">{{ site.description }}</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Contact</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ site.social.links[0] }}" class="text-white">Twitter</a></li>
+                        <li><a href="{{ site.social.links[1] }}" class="text-white">Linkedin</a></li>
+                        <li><a href="{{ site.social.links[2] }}" class="text-white">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container container-fluid">
+            <a class="navbar-brand">
+                <img src="./assets/images/jj_logo_blanc.png" alt="logo jj" width="30" height="30">
+                {{ site.initiale | capitalize }}
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
