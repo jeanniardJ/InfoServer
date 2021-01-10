@@ -5,30 +5,82 @@ layout: default
     <section>
         <div class="container p-3">
             <div class="shadow m-3 rounded-3 bg-orange p-1">
-                    <div class="col align-items-center">
-                        <nav aria-label="breadcrumb" class="bg-white rounded-3 p-1">
-                            <ol class="breadcrumb m-3">
-                                <li class="breadcrumb-item"><a class="text-reset" href="{{ site.baseurl }}">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">InfoServer</li>
-                            </ol>
-                        </nav>
-                    </div>
+                <div class="col align-items-center">
+                    <nav aria-label="breadcrumb" class="bg-white rounded-3 p-1">
+                        <ol class="breadcrumb m-3">
+                            <li class="breadcrumb-item"><a class="text-reset" href="{{ site.url }}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">InfoServer</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
     </section>
     <section>
         <div class="container p-3">
             <div class="shadow m-3 rounded-3 bg-orange p-1">
-                <h1 class="text-center text-uppercase text-white fw-bold">Info Server</h1>
+                <h1 class="text-center text-uppercase text-white fw-bold pt-2">Info Server</h1>
                 <hr>
                 <div class="row justify-content-center p-3">
                     <div class="bg-white rounded-3 p-2">
-                        <p>L'utilité de ce composent coder en PHP, est de récupère les informations vitales comme la
-                            capaciter mémoire avec la consommation de celle-ci, la capacité CPU avec ça consommation. La
-                            portabilité dans diffèrent projet est primordiale, avec composer l'installation et la mise
-                            en
-                            place est un jeu d'enfant.</p>
+                        <h2>Description</h2>
+                        <p>
+                            L'utilité de ce composent codé en PHP, est de récupère les informations vitales sur un
+                            serveur(Ubuntu ou Debian) via à une connexion ssh, comme la capacité mémoire avec la
+                            consommation de celle-ci, la
+                            capacité CPU avec ça consommation. La portabilité dans diffèrent projet est primordiale,
+                            avec composer l'installation et la mise en place est un jeu d'enfant.
+                        </p>
+                        <p>Les prérequis est d'avoir composer installé sur son poste ou l'utiliser en
+                            standalone(composer.phar), de connaitre un minimum sa gestion sur les packages.<br>
+                            Lien officiel de Composer --> <a href="https://getcomposer.org/">Download</a>
+                        </p>
+                        <h2>Les méthodes</h2>
+                        <p>
+                            Les méthodes proposé sont :
+                            <ul>
+                                <li>getSysteme()</li>
+                                <li>getCpu()</li>
+                                <li>getRam()</li>
+                                <li>getSawp()</li>
+                                <li>getLoadAverage()</li>
+                                <li>getReseau()</li>
+                                <li>getDisk()</li>
+                                <li>getUptime()</li>
+                            </ul>
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row g-0 border rounded shadow-sm">
+                                    <div class="col p-4 d-flex flex-column position-static">
+                                        <h3 class="mb-1">getSysteme()</h3>
+                                        <p class="card-text">La méthode <strong>getSysteme()</strong> retourne un tableau, sur les
+                                        informations sur :
+                                        <ul>
+                                            <li>Le hostname</li>
+                                            <li>L'os</li>
+                                            <li>La date du jour et l'heure</li>
+                                            (en fonction du fuseau horaire réglé sur le serveur)
+                                            <li>La version du kernel</li>
+                                            <li>L'architecture du systéme</li>
+                                            <li>L'uptime</li>
+                                            (est le nombre de jour que le serveur fonctionne sans avoir redémarrer)
+                                            <li></li>
+                                            <li></li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="col-md-6">
+                                <div class="row g-0 border rounded shadow-sm">
+                                    <div class="col p-4 d-flex flex-column position-static">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
