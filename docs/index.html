@@ -23,57 +23,70 @@ layout: default
                 <hr>
                 <div class="row justify-content-center p-3">
                     <div class="bg-white rounded-3 p-2">
-                        <h2>Description</h2>
-                        <p>
-                            L'utilité de ce composent codé en PHP, est de récupère les informations vitales sur un
-                            serveur(Ubuntu ou Debian) via à une connexion ssh, comme la capacité mémoire avec la
-                            consommation de celle-ci, la
-                            capacité CPU avec ça consommation. La portabilité dans diffèrent projet est primordiale,
-                            avec composer l'installation et la mise en place est un jeu d'enfant.
-                        </p>
-                        <p>Les prérequis est d'avoir composer installé sur son poste ou l'utiliser en
-                            standalone(composer.phar), de connaitre un minimum sa gestion sur les packages.<br>
-                            Lien officiel de Composer --> <a href="https://getcomposer.org/">Download</a>
-                        </p>
-                        <h2>Les méthodes</h2>
-                        <p>
-                            Les méthodes proposé sont :
-                            <ul>
-                                <li>getSysteme()</li>
-                                <li>getCpu()</li>
-                                <li>getRam()</li>
-                                <li>getSawp()</li>
-                                <li>getLoadAverage()</li>
-                                <li>getReseau()</li>
-                                <li>getDisk()</li>
-                                <li>getUptime()</li>
+                        <div class="border rounded shadow-sm mb-2 p-4">
+                            <h2>Description</h2>
+                            <p>
+                                L'utilité de ce composent codé en PHP, est de récupère les informations vitales sur un
+                                serveur(Ubuntu ou Debian), via à une connexion ssh qui doit être définie par avance et
+                                implémenté dans l'instance de la classe.
+                                Comme exemple: la capacité mémoire avec la consommation de celle-ci, la
+                                capacité CPU avec ça consommation. La portabilité dans diffèrent projet est primordiale,
+                                avec composer l'installation et la mise en place est un jeu d'enfant.
+                            </p>
+                            <p>Les prérequis est d'avoir composer installé sur son poste ou l'utiliser en
+                                standalone(composer.phar), de connaitre un minimum sa gestion sur les packages.<br>
+                                Lien officiel de Composer --> <a href="https://getcomposer.org/">Download</a>
+                            </p>
+                            <h2>Les méthodes</h2>
+                            <p>Les méthodes proposé sont:</p>
+                            <ul class="list-group list-group-flush list-group-horizontal-sm">
+                                <li class="list-group-item">getSysteme()</li>
+                                <li class="list-group-item">getCpu()</li>
+                                <li class="list-group-item">getRam()</li>
+                                <li class="list-group-item">getSawp()</li>
+                                <li class="list-group-item">getLoadAverage()</li>
+                                <li class="list-group-item">getReseau()</li>
+                                <li class="list-group-item">getDisk()</li>
+                                <li class="list-group-item">getUptime()</li>
                             </ul>
-                        </p>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="row g-0 border rounded shadow-sm">
                                     <div class="col p-4 d-flex flex-column position-static">
                                         <h3 class="mb-1">getSysteme()</h3>
-                                        <p class="card-text">La méthode <strong>getSysteme()</strong> retourne un tableau, sur les
-                                        informations sur :
+                                        <p class="card-text">La méthode <strong>getSysteme()</strong> retourne un
+                                            tableau, sur les informations sur :
                                         <ul>
                                             <li>Le hostname</li>
                                             <li>L'os</li>
-                                            <li>La date du jour et l'heure</li>
-                                            (en fonction du fuseau horaire réglé sur le serveur)
+                                            <li>La date du jour et l'heure (en fonction du fuseau horaire réglé sur le
+                                                serveur)
+                                            </li>
                                             <li>La version du kernel</li>
                                             <li>L'architecture du systéme</li>
-                                            <li>L'uptime</li>
-                                            (est le nombre de jour que le serveur fonctionne sans avoir redémarrer)
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
+                                            <li>L'uptime (est le nombre de jour que le serveur fonctionne sans avoir
+                                                redémarrer)
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
+                                <div class="row g-0 border rounded shadow-sm">
+                                    <div class="col p-4 d-flex flex-column position-static">
+                                        <h3 class="mb-1">getCpu()</h3>
+                                        <ul>
+                                            <li>Le marque du processeur</li>
+                                            <li>Le nombre de coeur</li>
+                                            <li>L'usage du processeur en pourcentage</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mt-3">
                                 <div class="row g-0 border rounded shadow-sm">
                                     <div class="col p-4 d-flex flex-column position-static">
 
