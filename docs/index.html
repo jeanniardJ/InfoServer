@@ -2,17 +2,15 @@
 layout: default
 ---
 <main>
-    <section>
-        <div class="container p-3">
-            <div class="shadow m-3 rounded-3 bg-orange p-1">
-                <div class="col align-items-center">
-                    <nav aria-label="breadcrumb" class="bg-white rounded-3 p-1">
-                        <ol class="breadcrumb m-3">
-                            <li class="breadcrumb-item"><a class="text-reset" href="{{ site.url }}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">InfoServer</li>
-                        </ol>
-                    </nav>
-                </div>
+    <section class="container p-3">
+        <div class="shadow m-3 rounded-3 bg-orange p-1">
+            <div class="col align-items-center">
+                <nav aria-label="breadcrumb" class="bg-white rounded-3 p-1">
+                    <ol class="breadcrumb m-3">
+                        <li class="breadcrumb-item"><a class="text-reset" href="{{ site.url }}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">InfoServer</li>
+                    </ol>
+                </nav>
             </div>
         </div>
     </section>
@@ -23,72 +21,166 @@ layout: default
                 <hr>
                 <div class="row justify-content-center p-3">
                     <div class="bg-white rounded-3 p-2">
-                        <div class="border rounded shadow-sm mb-2 p-4">
+                        <article class="border rounded shadow-sm mb-2 p-4">
                             <h2>Description</h2>
                             <p>
-                                L'utilité de ce composent codé en PHP, est de récupère les informations vitales sur un
-                                serveur(Ubuntu ou Debian), via à une connexion ssh qui doit être définie par avance et
+                                L'utilité de ce composent coder en <abbr title="Hypertext Preprocessor">PHP</abbr>, est
+                                de récupérer les informations vitales sur un
+                                serveur (Ubuntu ou Debian), avec une connexion <abbr
+                                    title="Hypertext Preprocessor">Ssh</abbr> qui doit être définie par avance et
                                 implémenté dans l'instance de la classe.
-                                Comme exemple: la capacité mémoire avec la consommation de celle-ci, la
+                                Comme exemple : la capacité mémoire avec la consommation de celle-ci, la
                                 capacité CPU avec ça consommation. La portabilité dans diffèrent projet est primordiale,
                                 avec composer l'installation et la mise en place est un jeu d'enfant.
+
                             </p>
-                            <p>Les prérequis est d'avoir composer installé sur son poste ou l'utiliser en
-                                standalone(composer.phar), de connaitre un minimum sa gestion sur les packages.<br>
+                            <p>
+                                Les prérequis est d'avoir Php 7.4 minimum et l'outils de gestion de package <strong>Composer</strong>
+                                installé sur son poste ou l'utiliser en
+                                standalone(composer.phar).<br>
                                 Lien officiel de Composer --> <a href="https://getcomposer.org/">Download</a>
                             </p>
+                            <pre>
+                                <code>
+                                    require __DIR__ . '/vendor/autoload.php';
+
+                                    use phpseclib\Net\SSH2;
+                                    use jjeanniard\InfoServer;
+
+                                    $ssh = new SSH2('localhost', 'port');
+
+                                    if (!$ssh->login('username', 'password')) {
+                                        echo('Login Failed');
+                                    }
+
+                                    $dataServ = new InfoServer($ssh);
+                                    $dataServ->getCpu();
+                                </code>
+                            </pre>
+                        </article>
+                        <div class="border rounded shadow-sm mb-2 p-4">
+                        <div class="accordion" id="accord-methode">
                             <h2>Les méthodes</h2>
-                            <p>Les méthodes proposé sont:</p>
-                            <ul class="list-group list-group-flush list-group-horizontal-sm">
-                                <li class="list-group-item">getSysteme()</li>
-                                <li class="list-group-item">getCpu()</li>
-                                <li class="list-group-item">getRam()</li>
-                                <li class="list-group-item">getSawp()</li>
-                                <li class="list-group-item">getLoadAverage()</li>
-                                <li class="list-group-item">getReseau()</li>
-                                <li class="list-group-item">getDisk()</li>
-                                <li class="list-group-item">getUptime()</li>
-                            </ul>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="row g-0 border rounded shadow-sm">
-                                    <div class="col p-4 d-flex flex-column position-static">
-                                        <h3 class="mb-1">getSysteme()</h3>
+                            <p>Les méthodes proposé sont :</p>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getSysteme()
+                                    </button>
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
                                         <p class="card-text">La méthode <strong>getSysteme()</strong> retourne un
                                             tableau, sur les informations sur :
                                         <ul>
                                             <li>Le hostname</li>
                                             <li>L'os</li>
-                                            <li>La date du jour et l'heure (en fonction du fuseau horaire réglé sur le
+                                            <li>La date du jour et l'heure (en fonction du fuseau horaire réglé sur
+                                                le
                                                 serveur)
                                             </li>
                                             <li>La version du kernel</li>
                                             <li>L'architecture du systéme</li>
-                                            <li>L'uptime (est le nombre de jour que le serveur fonctionne sans avoir
+                                            <li>L'uptime (est le nombre de jour que le serveur est en fonctionnement
+                                                sans avoir
                                                 redémarrer)
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    getCpu()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingThird">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getRam()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getSawp()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getLoadAverage()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getReseau()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getDisk()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingEight">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    getUptime()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
 
                             <div class="col-md-6">
                                 <div class="row g-0 border rounded shadow-sm">
                                     <div class="col p-4 d-flex flex-column position-static">
                                         <h3 class="mb-1">getCpu()</h3>
-                                        <ul>
-                                            <li>Le marque du processeur</li>
-                                            <li>Le nombre de coeur</li>
-                                            <li>L'usage du processeur en pourcentage</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 mt-3">
-                                <div class="row g-0 border rounded shadow-sm">
-                                    <div class="col p-4 d-flex flex-column position-static">
 
                                     </div>
                                 </div>
