@@ -15,31 +15,30 @@ layout: default
         </div>
     </section>
     <section class="container p-3">
-            <div class="shadow m-3 rounded-3 bg-orange p-1">
-                <h1 class="text-center text-uppercase text-white fw-bold pt-2">Info Server</h1>
-                <hr>
-                <div class="row justify-content-center p-3">
-                    <div class="bg-white rounded-3 p-2">
-                        <article class="border rounded shadow-sm mb-2 p-4">
-                            <h2>Description</h2>
-                            <p>
-                                L'utilité de ce composent coder en <abbr title="Hypertext Preprocessor">PHP</abbr>, est
-                                de récupérer les informations vitales sur un
-                                serveur (Ubuntu ou Debian), avec une connexion <abbr
-                                    title="Hypertext Preprocessor">Ssh</abbr> qui doit être définie par avance et
-                                implémenté dans l'instance de la classe.
-                                Comme exemple : la capacité mémoire avec la consommation de celle-ci, la
-                                capacité CPU avec ça consommation. La portabilité dans diffèrent projet est primordiale,
-                                avec composer l'installation et la mise en place est un jeu d'enfant.
+        <div class="shadow m-3 rounded-3 bg-orange p-1">
+            <h1 class="text-center text-uppercase text-white fw-bold pt-2">Info Server</h1>
+            <hr>
+            <div class="row justify-content-center p-3">
+                <div class="bg-white rounded-3 p-2">
+                    <article class="border rounded shadow-sm mb-2 p-4">
+                        <h2>Description</h2>
+                        <p>
+                            L'utilité de ce composent développé en <abbr title="Hypertext Preprocessor">PHP</abbr>, est
+                            de récupérer les informations vitales sur un serveur (Ubuntu ou Debian), avec une connexion
+                            <abbr title="Hypertext Preprocessor">Ssh</abbr> qui doit être définie par avance et
+                            implémenté dans l'instance de la classe.
+                            Comme exemple : la capacité mémoire avec la consommation de celle-ci, la
+                            capacité CPU avec ça consommation. La portabilité dans diffèrent projet est primordiale,
+                            avec composer l'installation et la mise en place est un jeu d'enfant.
 
-                            </p>
-                            <p>
-                                Les prérequis est d'avoir Php 7.4 minimum et l'outils de gestion de package <strong>Composer</strong>
-                                installé sur son poste ou l'utiliser en
-                                standalone(composer.phar).<br>
-                                Lien officiel de Composer --> <a href="https://getcomposer.org/">Download</a>
-                            </p>
-                            <pre>
+                        </p>
+                        <p>
+                            Les prérequis est d'avoir Php 7.4 minimum et l'outils de gestion de package
+                            <strong>Composer</strong> installé sur son poste ou l'utiliser en
+                            standalone(composer.phar).<br>
+                            Lien officiel de Composer --> <a href="https://getcomposer.org/">Download</a>
+                        </p>
+                        <pre>
                                 <code>
                                     require __DIR__ . '/vendor/autoload.php';
 
@@ -56,144 +55,190 @@ layout: default
                                     $dataServ->getCpu();
                                 </code>
                             </pre>
-                        </article>
-                        <div class="border rounded shadow-sm mb-2 p-4">
-                            <div class="accordion" id="accord-methode">
-                                <h2>Les méthodes</h2>
-                                <p>Les méthodes proposé sont :</p>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getSysteme()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p class="card-text">La méthode <strong>getSysteme()</strong> retourne un
-                                                tableau, sur les informations sur :
-                                            <ul>
-                                                <li>Le hostname</li>
-                                                <li>L'os</li>
-                                                <li>La date du jour et l'heure (en fonction du fuseau horaire réglé sur
-                                                    le
-                                                    serveur)
-                                                </li>
-                                                <li>La version du kernel</li>
-                                                <li>L'architecture du systéme</li>
-                                                <li>L'uptime (est le nombre de jour que le serveur est en fonctionnement
-                                                    sans avoir
-                                                    redémarrer)
-                                                </li>
-                                            </ul>
-                                        </div>
+                    </article>
+                    <div class="border rounded shadow-sm mb-2 p-4">
+                        <div class="accordion" id="accord-methode">
+                            <h2>Les méthodes</h2>
+                            <p>Les méthodes proposées sont :</p>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                        getSysteme()
+                                    </button>
+                                </h3>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                     aria-labelledby="headingOne" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p class="card-text">La méthode <strong>getSysteme()</strong> retourne un
+                                            tableau, sur les informations listées :
+                                        <ul>
+                                            <li>Le hostname</li>
+                                            <li>L'os</li>
+                                            <li>La date du jour et l'heure (en fonction du fuseau horaire réglé sur
+                                                le
+                                                serveur)
+                                            </li>
+                                            <li>La version du kernel</li>
+                                            <li>L'architecture du systéme</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseTwo" aria-expanded="true"
-                                                aria-controls="collapseTwo">
-                                            getCpu()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseTwo" class="accordion-collapse collapse show"
-                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-
-                                        </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="true"
+                                            aria-controls="collapseTwo">
+                                        getCpu()
+                                    </button>
+                                </h3>
+                                <div id="collapseTwo" class="accordion-collapse collapse"
+                                     aria-labelledby="headingTwo" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>La méthode <strong>getCpu()</strong> retourne un tableau, sur les
+                                            informations listées :
+                                        <ul>
+                                            <li>Le modèle du processeur</li>
+                                            <li>Le nombre de coeur</li>
+                                            <li>L'utilisation moyenne du cpu</li>
+                                        </ul>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingThird">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getRam()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseThird" class="accordion-collapse collapse"
-                                         aria-labelledby="headingThird" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-
-                                        </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingThird">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseThird" aria-expanded="true"
+                                            aria-controls="collapseThird">
+                                        getRam()
+                                    </button>
+                                </h3>
+                                <div id="collapseThird" class="accordion-collapse collapse"
+                                     aria-labelledby="headingThird" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>La méthode <strong>getRam()</strong> un tableau, sur les informations listées
+                                            :
+                                        <ul>
+                                            <li>La consommation de la mémoire en bytes</li>
+                                            <li>Le reste de mémoire non consommé en bytes</li>
+                                            <li>Le nombre total de mémoire en bytes</li>
+                                            <li>Le nombre de mémoire consommé en pourcentage</li>
+                                        </ul>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getSawp()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                         aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-
-                                        </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFour" aria-expanded="true"
+                                            aria-controls="collapseFour">
+                                        getSawp()
+                                    </button>
+                                </h3>
+                                <div id="collapseFour" class="accordion-collapse collapse"
+                                     aria-labelledby="headingFour" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>La méthode <strong>getSwap()</strong> un tableau, sur les informations
+                                            listées
+                                            :
+                                        <ul>
+                                            <li>La consommation du swap en bytes</li>
+                                            <li>Le reste de swap non consommé en bytes</li>
+                                            <li>Le nombre total de swap en bytes</li>
+                                            <li>Le nombre de swap consommé en pourcentage</li>
+                                        </ul>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getLoadAverage()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseFive" aria-expanded="true"
+                                            aria-controls="collapseFive">
+                                        getLoadAverage()
+                                    </button>
+                                </h3>
+                                <div id="collapseFive" class="accordion-collapse collapse"
+                                     aria-labelledby="headingFive" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>La méthode <strong>getLoadAverage()</strong> un tableau, sur l'information :
 
-                                        </div>
+                                        <ul>
+                                            <li>La moyenne de la charge du système en pourcentage</li>
+                                        </ul>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingSix">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getReseau()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-
-                                        </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseSix" aria-expanded="true"
+                                            aria-controls="collapseSix">
+                                        getReseau()
+                                    </button>
+                                </h3>
+                                <div id="collapseSix" class="accordion-collapse collapse"
+                                     aria-labelledby="headingSix" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>La méthode <strong>getReseau()</strong> un tableau, sur les informations
+                                            listées
+                                            :
+                                        <ul>
+                                            <li>La consommation de données en upload en bytes</li>
+                                            <li>La consommation de données en download en bytes</li>
+                                        </ul>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingSeven">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getDisk()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-
-                                        </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseSeven" aria-expanded="true"
+                                            aria-controls="collapseSeven">
+                                        getDisk()
+                                    </button>
+                                </h3>
+                                <div id="collapseSeven" class="accordion-collapse collapse"
+                                     aria-labelledby="collapseSeven" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>La méthode <strong>getDisk()</strong> retourne un tableau, sur les
+                                            informations listées :
+                                        <ul>
+                                            <li>La consommation du disque en bytes</li>
+                                            <li>La place restent sur le disque non consommé en bytes</li>
+                                            <li>Le nombre total de place sur le disque en bytes</li>
+                                            <li>Le nombre de place sur le disque consommé en pourcentage</li>
+                                        </ul>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h3 class="accordion-header" id="headingEight">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                            getUptime()
-                                        </button>
-                                    </h3>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-
-                                        </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingEight">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseEight" aria-expanded="true"
+                                            aria-controls="collapseEight">
+                                        getUptime()
+                                    </button>
+                                </h3>
+                                <div id="collapseEight" class="accordion-collapse collapse"
+                                     aria-labelledby="headingEight" data-bs-parent="#accord-methode">
+                                    <div class="accordion-body">
+                                        <p>
+                                            La méthode <strong>getUptime()</strong> retourne un tableau, sur
+                                            l'information :
+                                        <li>L'uptime (est le nombre de jour que le serveur est en fonctionnement
+                                            sans avoir
+                                            redémarrer)
+                                        </li>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -201,6 +246,7 @@ layout: default
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 </main>
 
